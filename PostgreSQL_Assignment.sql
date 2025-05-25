@@ -4,7 +4,8 @@
 CREATE Table rangers (
     ranger_id SERIAL PRIMARY KEY,
     name VARCHAR(30) NOT NULL,
-    region VARCHAR(50) NOT NULL
+    region VARCHAR(50) NOT NULL,
+    UNIQUE(ranger_id)
 );
 
 -- Species table creating
@@ -13,7 +14,8 @@ CREATE Table species (
     common_name VARCHAR(50) NOT NULL,
     scientific_name VARCHAR(100) NOT NULL,
     discovery_date DATE NOT NULL,
-    conservation_status VARCHAR(50)
+    conservation_status VARCHAR(50),
+    UNIQUE(species_id)
 );
 
 -- Sightings table creating
@@ -25,7 +27,8 @@ CREATE Table sightings (
     location VARCHAR(50) NOT NULL,
     notes VARCHAR(250),
     FOREIGN KEY (ranger_id) REFERENCES rangers(ranger_id),
-    FOREIGN KEY (species_id) REFERENCES species(species_id)
+    FOREIGN KEY (species_id) REFERENCES species(species_id),
+    UNIQUE(sighting_id)
 );
 
 -- Inserting data into rangers table
@@ -39,7 +42,8 @@ INSERT INTO species(common_name, scientific_name, discovery_date, conservation_s
 ('Snow Leopard', 'Panthera uncia', '1775-01-01', 'Endangered'),
 ('Bengal Tiger', 'Panthera tigris tigris', '1758-01-01', 'Endangered'),
 ('Red Panda', 'Ailurus fulgens', '1825-01-01', 'Vulnerable'),
-('Asiatic Elephant', 'Elephas maximus indicus', '1758-01-01', 'Endangered');
+('Asiatic Elephant', 'Elephas maximus indicus', '1758-01-01', 'Endangered'),
+('Asiatic Elephant', 'Elephas maximus indicus', '1758-02-01', 'Endangered');
 
 -- Inserting data into sighting table
 INSERT INTO sightings(species_id, ranger_id, location, sighting_time, notes) VALUES
@@ -49,4 +53,12 @@ INSERT INTO sightings(species_id, ranger_id, location, sighting_time, notes) VAL
 (1, 2, 'Snowfall Pass', '2024-05-18 18:30:00', NULL);
 
 
-SELECT * from sightings
+-- Problem 1
+INSERT INTO rangers(name, region) VALUES
+('Derek Fox', 'Coastal Plains');
+
+
+-- Problem 2
+SELECT COUNT(DISTINCT scientific_name) as unique_species_count
+FROM species;
+
