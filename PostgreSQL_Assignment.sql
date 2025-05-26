@@ -77,3 +77,19 @@ ORDER BY rangers.name ASC;
 
 
 -- Problem 5
+SELECT sp.species_id, sp.common_name, sp.scientific_name
+FROM species sp
+LEFT JOIN sightings sg ON sp.species_id = sg.species_id
+WHERE sg.species_id IS NULL;
+
+
+-- Problem 6
+SELECT sp.common_name, sg.sighting_time, rn.name 
+FROM sightings sg
+JOIN species sp ON sg.species_id = sp.species_id
+JOIN rangers rn ON sg.ranger_id = rn.ranger_id
+ORDER BY sg.sighting_time DESC
+LIMIT 2;
+
+
+-- Problem 7
