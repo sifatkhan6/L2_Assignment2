@@ -10,3 +10,8 @@
 ### What is the difference between the VARCHAR and CHAR data types?
 **Answer:** VARCHAR এবং CHAR মধ্যে পার্থক্য হচ্ছে VARCHAR একটি নির্দিষ্ট সংখ্যা পর্যন্ত ভেরিয়েবল string নিতে পারে কিন্তু CHAR সব সময় একটি নির্দিষ্ট সংখ্যার string নিবে, ওর কম বা বেশি নেবে না। VARCHAR যতোটুকু জায়গা দরকার ততটুকুই নিবে string সাইজের উপর নির্ভর করে কিন্তু CHAR সব সময় পূর্ব নির্ধারিত ভেরিয়েবল সংখ্যার  সমান জায়গাই নিবে। VARCHAR এর কোন Padding নাই কিন্তু CHAR এর আছে।
 
+### Explain the purpose of the WHERE clause in a SELECT statement.
+**Answer:** নির্দিষ্ট শর্তের জন্য একটি টেবিল থেকে একটি নির্দিষ্ট row খুঁজে বের করার জন্য SELECT statement এ WHERE clause ব্যাবহার হয়। 
+
+### What are the LIMIT and OFFSET clauses used for?
+**Answer:** LIMIT এবং OFFSET মধ্যে পার্থক্য হচ্ছে LIMIT ব্যবহার করা হয় যখন একটি টেবিল থেকে নির্দিষ্ট সংখ্যক row বের করা লাগে আর OFFSET ব্যবহার করা হয় যখন একটি টেবিলের কোন একটা নির্দিষ্ট row বাদ দিয়ে টেবিল দেখতে হয়।
